@@ -1,8 +1,8 @@
-|P000789| 
+|P000789 | Phudrak Kangyur
 | --- | --- 
 |Alternative titles  |
 |Author | 
-|BDRC ID | 
+|BDRC ID | W2KG210295
 |Creator | Phudrak OCR
 |Number of volumes | 119
 |Edit online | [<img width="25" src="https://img.icons8.com/color/25/000000/edit-property.png"> Open in Editor](http://editor.openpecha.org/P008165)
