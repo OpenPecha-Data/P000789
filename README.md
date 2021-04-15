@@ -1,4 +1,4 @@
-|P000789 | Phudrak Kangyur
+|P000789 | བཀའ་འགྱུར། ༼ཕུག་བྲག་བྲིས་མ༽
 | --- | --- 
 |Alternative titles  |
 |Author | 
