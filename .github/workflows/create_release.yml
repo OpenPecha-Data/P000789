@@ -1,9 +1,7 @@
 name: Create Release
 on:
   push:
-    paths:
-      '*/P000789/P000789.opf/**'
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 jobs:
   release-project:
@@ -21,6 +19,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install zipfile36 openpecha
+          
       - name: Create zip file for text and hfml
         run: |
           import os 
@@ -29,34 +28,34 @@ jobs:
           from os.path import basename
           from pathlib import Path
           from openpecha.serializers import HFMLSerializer
-
+          
           def create_zip(base_path, name):
               with ZipFile(name, 'w') as zipObj:
                   for folderName, subfolders, filenames in os.walk(base_path):
                       for filename in filenames:
                           filePath = os.path.join(folderName, filename)
                           zipObj.write(filePath, basename(filePath))
-
+          
           def get_clean_hfml(lines):
               new_line = []
               new_content = ""
               for num, line in enumerate(lines,1):
                   if  num % 2 != 0:
-                      new_line = re.sub(f"(\[\.\d+\])", "", line )
+                      new_line = re.sub(f"(\[((.\d+\w)|(\d+(a|b)\.\d+))\])", "", line )
                       new_content += new_line
                       new_line = []
                   else:
                       new_content += "\n"
               return new_content
-
+          
           def write_hfml(content, hfml_path, vol_num):
               out_fn = Path(f"{hfml_path}/{vol_num}.txt")
               out_fn.write_text(content)
-              print("Done")
-
+          
           if __name__=="__main__":
               pecha_id = Path.cwd().name
-              opf_path = Path.cwd().resolve() / f"{pecha_id}.opf"
+              opf_path = Path(f'../{pecha_id}/{pecha_id}.opf')
+              print(opf_path)
               base_path = Path(f'{opf_path}/base')
               hfml_path = Path(f"./output/publication")
               hfml_path.mkdir(exist_ok=True, parents=True)
@@ -86,6 +85,7 @@ jobs:
           release_name: Release ${{ github.run_number }}
           draft: false
           prerelease: false
+      
       - name: upload base assets
         uses: actions/upload-release-asset@v1
         env:
@@ -95,6 +95,7 @@ jobs:
           asset_path: ./${{ github.event.repository.name }}_base.zip
           asset_name: ${{ github.event.repository.name }}_base.zip
           asset_content_type: text/zip
+      
       - name: upload hfml assets
         uses: actions/upload-release-asset@v1
         env:
