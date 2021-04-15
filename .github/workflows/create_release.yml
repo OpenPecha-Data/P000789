@@ -54,7 +54,7 @@ jobs:
 
           if __name__=="__main__":
               pecha_id = Path.cwd().name
-              opf_path = Path.cwd().resolve() / f"{repo_name}.opf"
+              opf_path = Path.cwd().resolve() / f"{pecha_id}.opf"
               base_path = Path(f'{opf_path}/base')
               hfml_path = Path(f"./output/publication")
               hfml_path.mkdir(exist_ok=True, parents=True)
