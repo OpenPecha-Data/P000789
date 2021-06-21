@@ -3,7 +3,7 @@
 |Alternative titles  |
 |Author | 
 |BDRC ID | W2KG210295
-|Etext source | Google OCR
+|Etext source | Transkribus OCR
 |Number of volumes |119
 |Edit online | [<img width="25" src="https://img.icons8.com/color/25/000000/edit-property.png"> Open in Editor](http://editor.openpecha.org/P000005)
 |Download | [![](https://img.icons8.com/color/20/000000/txt.png)Plain Text](https://github.com/Openpecha/P000789/releases/download/v5/kagyur_puk_drak_drima_plain_4c0ea8.zip), [![](https://img.icons8.com/color/20/000000/txt.png)Text with Pagination](https://github.com/Openpecha/P000789/releases/download/v5/kagyur_puk_drak_drima_pages_4c0ea8.zip)
